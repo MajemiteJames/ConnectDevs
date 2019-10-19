@@ -1,5 +1,7 @@
 {
 "mongoURL": "mongodb+srv://new-user31:new-user31@devconnector-a8nsw.mongodb.net/test?retryWrites=true&w=majority",
-"jwtSecret": "thisisjustanothersecret"
+"jwtSecret": "thisisjustanothersecret",
+"githubClientId": "4e27fce852ebf516315d",
+"githubSecret": "e8832be74a778f10af86aee742b0925fead6c436"
 
 }
