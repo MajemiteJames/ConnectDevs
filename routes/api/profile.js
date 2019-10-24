@@ -7,6 +7,7 @@ const auth = require('../../middleware/auth');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 
 // @route    GET api/profile/me
 // @desc     Get current user profile
@@ -154,6 +155,10 @@ router.get('/user/:user_id', async (req, res) => {
 router.delete('/', auth,  async (req, res) => {
 
     try {
+        // remove usee post on delte of account
+
+        await Post.deleteMany({ user: req.user.id });
+
         // Remove profile
         await Profile.findOneAndRemove({ user: req.user.id });
 
@@ -163,6 +168,9 @@ router.delete('/', auth,  async (req, res) => {
         res.json({ msg: 'User deleted'});
 
     } catch (err) {
+
+
+
         console.log(err.message);
         res.status(500).send('Server error');
     }
